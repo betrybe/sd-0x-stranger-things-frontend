@@ -1,22 +1,22 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class CharactersService {
-  constructor ({ url = 'http://localhost:3000', timeout = 30000 }) {
+  constructor({ url = 'http://localhost:3000', timeout = 30000 }) {
     this.http = axios.create({
       baseURL: url,
-      timeout
-    })
+      timeout,
+    });
   }
 
-  async getCharacters (name, page, size) {
+  async getCharacters(name, page, size) {
     const params = {
       page,
       size,
-      name
-    }
+      name,
+    };
 
-    return this.http.get('/', { params })
+    return this.http.get('/', { params });
   }
 }
 
-export default CharactersService
+export default CharactersService;
