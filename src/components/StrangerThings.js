@@ -1,17 +1,17 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
 
-const getRealityClass = (hereIsTheUpsideDownWorld) => {
-  return hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
-};
+const getRealityClass = (hereIsTheUpsideDownWorld) => (
+  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
+);
 
 const strangerThingsConfig = {
-  url: 'localhost:3002',
+  url: 'http://localhost:3002',
   timeout: 30000,
 };
 
 const upsideDownConfig = {
-  url: 'localhost:3003',
+  url: 'http://localhost:3003',
   timeout: 30000,
 };
 
@@ -123,20 +123,22 @@ class StrangerThings extends React.Component {
 
           <div>
             <table>
-              <tr>
-                <th>Nome</th>
-                <th>Origem</th>
-                <th>Status</th>
-              </tr>
-              {this.state.characters.map((x) => {
-                return (
-                  <tr>
-                    <td>{x.name}</td>
-                    <td>{x.origin}</td>
-                    <td>{x.status}</td>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Origem</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.characters.map((char) => (
+                  <tr key={char.name}>
+                    <td>{char.name}</td>
+                    <td>{char.origin}</td>
+                    <td>{char.status}</td>
                   </tr>
-                );
-              })}
+                ))}
+              </tbody>
             </table>
           </div>
 
