@@ -49,13 +49,9 @@
 
   display: flex;
   justify-content: center;
-  
-  transition:
-    background-position 2.5s,
-    background-image 3s ease-in-out;
-  -webkit-transition:
-    background-position 2.5s,
-    background-image 3s ease-in-out;
+
+  transition: background-position 2.5s, background-image 3s ease-in-out;
+  -webkit-transition: background-position 2.5s, background-image 3s ease-in-out;
 }
 
 .stranger-things {
@@ -78,13 +74,16 @@
 
 .strangerfy > div > * {
   font-family: 'BenguiatITCW01-BoldCn';
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.eot') format('embedded-opentype'),
-       url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.woff') format('woff'),
-       url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.ttf') format('truetype');
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.eot')
+      format('embedded-opentype'),
+    url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.woff')
+      format('woff'),
+    url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/BenguiatProITC-BoldCond.ttf')
+      format('truetype');
   font-style: normal;
   font-weight: bold;
 
-  color: #C11B1F;
+  color: #c11b1f;
   background: rgba(211, 211, 211, 0.637);
 
   font-size: x-large;
