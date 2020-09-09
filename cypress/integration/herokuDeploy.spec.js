@@ -3,28 +3,28 @@
 const PESQUISAR = "Pesquisar";
 const MARTIN = "Martin";
 const INVERTED_MARTIN = "uᴉʇɹɐW";
-const FRONT_URL = "FRONT_URL";
+const FRONT_URL = `https://${Cypress.env('GITHUB_USER')}-st-frontend.herokuapp.com/.`
 const Claudia = "Claudia"
 
-describe("9-Verifica se foi feito o deploy do frontend", () => {
+describe("Verifica se foi feito o deploy do frontend no Heroku", () => {
   beforeEach(() => {
-    cy.visit(Cypress.env(FRONT_URL));
+    cy.visit(FRONT_URL);
   });
-  it("Verifica se a pagina foi renderizada com sucesso", () => {
+  it("Verifica se o botão de mudar de realidade existe", () => {
     cy.get(".change-reality").should("exist");
   });
 
-  it("Verifica se a pesquisa funciona", () => {
+  it("Verifica se a pesquisa funciona como deveria", () => {
     cy.contains(PESQUISAR).click();
     cy.contains(MARTIN).should("exist");
   });
-  it("Verifica se mudar de realidade funciona", () => {
+  it("Verifica se o botão de mudar de realidade funciona.", () => {
     cy.contains("Mudar de Realidade").click();
     cy.contains(PESQUISAR).click();
     cy.contains(INVERTED_MARTIN).should("exist");
   });
 
-  it("Verifica se mudar pra próxima página funciona", () => {
+  it("Verifica se os botões de próxima página e página anterior funcionam", () => {
     cy.contains(PESQUISAR).click();
     cy.contains(MARTIN).should("exist");
 
