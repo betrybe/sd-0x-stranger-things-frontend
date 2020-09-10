@@ -8,6 +8,7 @@ describe("Verifica os multi-ambientes e modo de desenvolvimento", () => {
     cy.visit(FRONT_URL);
     cy.contains("Em desenvolvimento").should("exist");
   });
+  
   it("Será validado que a tag de desenvolvimento não existe no frontend de produção", () => {
     cy.visit(FRONT_URL_PROD);
     cy.contains("Em desenvolvimento").should("not.exist");
