@@ -6,20 +6,4 @@ Aqui você vai encontrar os locais para colocar suas repostas relativas aos requ
 
   - Adicione os comandos utilizados, de maneira sequencial, ao README do frontend.
 
-**Nota**: Este direcionamento está presente no [repositório](https://github.com/tryber/sd-01-block31-stranger-things) em que os requisitos do projeto são destrinchados.
-
-## Requisitos
-
-### 9 - Deploy Heroku
-
-Para realizar o deploy do meu frontend, fiz o seguinte procedimento:
-
-`Adicione aqui os comandos utilizados, de maneira sequencial.`
-
-## Bônus
-
-### 10 - Multi-ambientes
-
-Para tornar a minha a minha aplicação Multi-ambiente, fiz o seguinte procedimento:
-
-`Adicione aqui os comandos utilizados, de maneira sequencial.`
+**Nota**: Este direcionamento está presente no [repositório](https://github.com/betrybe/sd-0x-stranger-things) em que os requisitos do projeto são destrinchados.
