@@ -46,8 +46,9 @@ class StrangerThings extends React.Component {
   }
 
   changeRealityClick() {
+    const { hereIsTheUpsideDownWorld } = this.state;
     this.setState({
-      hereIsTheUpsideDownWorld: !this.state.hereIsTheUpsideDownWorld,
+      hereIsTheUpsideDownWorld: !hereIsTheUpsideDownWorld,
       characters: [],
     });
   }
@@ -68,8 +69,9 @@ class StrangerThings extends React.Component {
       ? charactersUpsideDownService
       : charactersService;
 
+    const numberOfPages = 10;
     service
-      .getCharacters(characterName, page || page, 10)
+      .getCharacters(characterName, page || page, numberOfPages)
       .then(({ data: characters }) => {
         this.setState({
           characters,
