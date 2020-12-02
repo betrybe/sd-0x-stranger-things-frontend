@@ -18,7 +18,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cy": "cypress run"
+    "cy": "cypress run",
+    "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +42,9 @@
     "mocha": "^7.0.1",
     "mochawesome": "^4.1.0",
     "mochawesome-merge": "^4.0.0",
-    "mochawesome-report-generator": "^4.1.0"
+    "mochawesome-report-generator": "^4.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   }
 }
