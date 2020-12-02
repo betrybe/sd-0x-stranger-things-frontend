@@ -1,2 +1,2 @@
-const = testa sintaxe errada
+// const = testa sintaxe errada
 const xablau = 'test';
