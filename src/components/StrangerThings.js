@@ -39,16 +39,16 @@ class StrangerThings extends React.Component {
     this.previousPage = this.previousPage.bind(this);
   }
 
+  handleInput(event) {
+    this.setState({
+      characterName: event.target.value,
+    });
+  }
+
   changeRealityClick() {
     this.setState({
       hereIsTheUpsideDownWorld: !this.state.hereIsTheUpsideDownWorld,
       characters: [],
-    });
-  }
-
-  handleInput(event) {
-    this.setState({
-      characterName: event.target.value,
     });
   }
 
@@ -57,17 +57,19 @@ class StrangerThings extends React.Component {
       {
         page: 1,
       },
-      this.searchCharacter(1)
+      this.searchCharacter(1),
     );
   }
 
   searchCharacter(page) {
-    const service = this.state.hereIsTheUpsideDownWorld
+    const { characterName, hereIsTheUpsideDownWorld } = this.state;
+
+    const service = hereIsTheUpsideDownWorld
       ? charactersUpsideDownService
       : charactersService;
 
     service
-      .getCharacters(this.state.characterName, page || this.state.page, 10)
+      .getCharacters(characterName, page || page, 10)
       .then(({ data: characters }) => {
         this.setState({
           characters,
@@ -76,37 +78,43 @@ class StrangerThings extends React.Component {
   }
 
   nextPage() {
-    if (!this.state.characters.length) return;
+    const { page, characters } = this.state;
+
+    if (!characters.length) return;
 
     this.setState(
       {
-        page: this.state.page + 1,
+        page: page + 1,
       },
-      () => this.searchCharacter()
+      () => this.searchCharacter(),
     );
   }
 
   previousPage() {
-    if (this.state.page <= 1) return;
+    const { page } = this.state;
+    if (page <= 1) return;
 
     this.setState(
       {
-        page: this.state.page - 1,
+        page: page - 1,
       },
-      () => this.searchCharacter()
+      () => this.searchCharacter(),
     );
   }
 
   render() {
+    const {
+      hereIsTheUpsideDownWorld, characterName, characters, previousPage, nextPage, page,
+    } = this.state;
     return (
       <div
-        className={`reality ${getRealityClass(
-          this.state.hereIsTheUpsideDownWorld
-        )}`}
+        className={ `reality ${getRealityClass(
+          hereIsTheUpsideDownWorld,
+        )}` }
       >
         <div className="content strangerfy">
           <div className="change-reality">
-            <button onClick={this.changeRealityClick}>
+            <button type="button" onClick={ this.changeRealityClick }>
               {' '}
               Mudar de Realidade
             </button>
@@ -115,10 +123,10 @@ class StrangerThings extends React.Component {
           <div>
             <input
               placeholder="Nome do Personagem"
-              onChange={this.handleInput}
-              value={this.state.characterName}
+              onChange={ this.handleInput }
+              value={ characterName }
             />
-            <button onClick={this.searchClick}>Pesquisar</button>
+            <button type="button" onClick={ this.searchClick }>Pesquisar</button>
           </div>
 
           <div>
@@ -131,8 +139,8 @@ class StrangerThings extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.characters.map((char) => (
-                  <tr key={char.name}>
+                {characters.map((char) => (
+                  <tr key={ char.name }>
                     <td>{char.name}</td>
                     <td>{char.origin}</td>
                     <td>{char.status}</td>
@@ -143,11 +151,14 @@ class StrangerThings extends React.Component {
           </div>
 
           <div>
-            <p>Página atual: {this.state.page}</p>
+            <p>
+              Página atual:
+              {page}
+            </p>
           </div>
           <div>
-            <button onClick={this.previousPage}>Anterior</button>
-            <button onClick={this.nextPage}>Próximo</button>
+            <button type="button" onClick={ previousPage }>Anterior</button>
+            <button type="button" onClick={ nextPage }>Próximo</button>
           </div>
         </div>
       </div>
