@@ -1,15 +1,15 @@
 {
   "requirements": [
     {
-      "description": "Verifica se foi feito o deploy do frontend no Heroku",
+      "description": "1 - Verifica se foi feito o deploy do frontend no Heroku",
       "bonus": false
     },
     {
-      "description": "Verifica as variáveis de ambiente do frontend",
+      "description": "2 - Verifica as variáveis de ambiente do frontend",
       "bonus": false
     },
     {
-      "description": "Verifica os multi-ambientes e modo de desenvolvimento",
+      "description": "3 - Verifica os multi-ambientes e modo de desenvolvimento",
       "bonus": true
     }
   ]
