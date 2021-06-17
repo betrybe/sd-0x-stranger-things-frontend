@@ -1,5 +1,6 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
+import Table from './Table';
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
@@ -130,24 +131,7 @@ class StrangerThings extends React.Component {
           </div>
 
           <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Origem</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {characters.map((char) => (
-                  <tr key={ char.name }>
-                    <td>{char.name}</td>
-                    <td>{char.origin}</td>
-                    <td>{char.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <Table characters={ characters } />
           </div>
 
           <div>
